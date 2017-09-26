@@ -65,7 +65,7 @@ function tplawesome(e,t){//e=data of item.html,
           //https://api.jquery.com/jquery.get/
           //from what i understand the jquery.get checks if the item.html file exist and will run the callback function if it does exist
           function getVideo (index, item) {
-            $.get("item.html", function(data) {//data is the contents of item.html
+            $.get("assets/html/item.html", function(data) {//data is the contents of item.html
               console.log(data)
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
             });
