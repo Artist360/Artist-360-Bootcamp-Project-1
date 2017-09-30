@@ -22,11 +22,12 @@ $(document).ready(function() {
 			var secret = '25db4cfa9c14439b612069f24c3eb65cefc68ff2';
 			var token = '376d3a7196861c3756a857de898f3b99e3d1d8c8';
 			var token_secret = '8588ecbdf6b7cf56732b7105dde23179b94e7710';
-			var api = new MusicStoryApi(key, secret, token, token_secret);
+			var api = new MusicStoryApi(key, secret);
 			// looking for some bands. This first call will take care of getting tokens before doing request.
 
 			// looking for some bands. This first call will take care of getting tokens before doing request.
-			api.search('Artist', {name: 'chingy'}, function(list) {
+			console.log("4")
+			api.search('Artist', {name: 'lil wayne'}, function(list) {
 				console.log(list)
 
 				

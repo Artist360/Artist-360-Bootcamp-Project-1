@@ -21,7 +21,7 @@ function MusicStoryApi(oauth_consumer_key, oauth_consumer_secret, token, token_s
 	this._version = version;
 	this._base_url = 'http://api.music-story.com';
 	this.resp = null;
-	console.log(this.consumer_key);
+
 	/**
 	 * Run function when condition is ok
 	 * @param condition
@@ -220,7 +220,7 @@ function MusicStoryApi(oauth_consumer_key, oauth_consumer_secret, token, token_s
 			url += _this._version + '/';
 		url += 'oauth/request_token.json';
 		oauth_signature = _this._sign(url, {oauth_consumer_key: _this.consumer_key, _callback: 'var json='});
-		this._load(url, {data: {oauth_consumer_key: _this.consumer_key, oauth_`ature: oauth_signature, _callback: 'var json='}, async: false}, function() {
+		this._load(url, {data: {oauth_consumer_key: _this.consumer_key, oauth_signature: oauth_signature, _callback: 'var json='}, async: false}, function() {
 			_this.token = _this.resp.data.token;
 			_this.token_secret = _this.resp.data.token_secret;
 			callback();
