@@ -12,7 +12,7 @@
 
   var database = firebase.database()
 
-  var randomArtistArray = ["Coldplay", "Muse", "Radiohead", "Queens of the Stone Age", "Incubus", "Dr. Dre", "Eminem"]
+  var randomArtistArray = ["Coldplay", "Muse", "Radiohead", "Queens of the Stone Age", "Incubus", "Dr. Dre", "Eminem", "Fall Out Boy", "Jay Z", "Beyonce", "Metallica"]
 
   $("#random-button").on("click", function() {
      var randomNumber = Math.floor(Math.random() * randomArtistArray.length)
@@ -24,8 +24,8 @@
 
      $("#artist-name-input").val(randomArtist)
      console.log($("#artist-name-input").val())
-    wiki()
     musicgraph()
+    wiki()
 
 
 
