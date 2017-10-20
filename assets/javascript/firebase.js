@@ -1,3 +1,6 @@
+// Since you're not loading this file into your html I'd suggest removing it
+// from your repo.
+
  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBXSp5la36OCI7Net3eh2U79Nc5UJfggCQ",
