@@ -24,15 +24,18 @@
      randomArtist = randomArtistArray[randomNumber]
 
      $("#artist-name-input").val(randomArtist)
-     console.log($("#artist-name-input").val())
-     console.log("123123")
+
+     // Generally best to remove console.log statements from your production code.
+
+     // console.log($("#artist-name-input").val())
+     // console.log("123123")
     wiki()
     musicgraph()
 
 
 
 
-     console.log(randomArtistArray[randomNumber])
+     // console.log(randomArtistArray[randomNumber])
 
   })
     
@@ -67,7 +70,7 @@
     //firebase
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
-console.log(childSnapshot.val())
+// console.log(childSnapshot.val())
 
     // Store everything into a variable.
     
@@ -81,11 +84,14 @@ console.log(childSnapshot.val())
 
 
     });
+
+// Doesn't appear that you use this variable anywhere so I'd suggest removing it.
 var thisthing=""
+
 //set the client id and api
 // init function runs first on start up?
 function init() {
-  console.log("initting")
+  // console.log("initting")
     gapi.client.setApiKey("AIzaSyAWtNryZAH0FZ2IGlCr1Z8DPdvQwfjztPw");
     gapi.client.load("youtube", "v3", function() {
       // q: "album|song -cover -mashup" + encodeURIComponent($("#artist-name-input").val()).replace(/%20/g, "+")
@@ -96,17 +102,20 @@ function init() {
 $("body").on("click","#artist-search-btn", wiki)
 $("body").on("click","#bio-button", wiki)
 
+// Doesn't appear that you use `hasSearch` or `wikiSearch` anywhere so I'd suggest removing them.
 var hasSearch = false
 var wikiSearch=""
 var toSearch = "";
 function wiki() {
-console.log(wikiSearch)
+// console.log(wikiSearch)
 // $("nav").on("click","#bio-button", function() {
   event.preventDefault()
 
   
-  console.log("wiki test")
+  // console.log("wiki test")
   
+  // You end up assigning this selector to `articles` in a couple lines so I'd suggest
+  // just assigning it here and then running `.empty()` on the new variable.
   $("#content").empty()
   
   var articles = $("#content");
@@ -117,8 +126,8 @@ console.log(wikiSearch)
 
   var ajaxArticleData = function () {
 
-    console.log(wikiSearch)
-    console.log(toSearch)
+    // console.log(wikiSearch)
+    // console.log(toSearch)
     $.ajax({
         url: searchUrl,
         dataType: 'jsonp',
@@ -189,8 +198,11 @@ console.log(wikiSearch)
         articles.empty();
 
           var thisButton = $(this).attr('id');
-          console.log(thisButton)
+          // console.log(thisButton)
           //if you click the artist-search-btn get the input from user
+
+          // I'd suggest always using strict equality checking with `===` instead of type coercion checking with `==`
+
           if(thisButton == "artist-search-btn") {
             randomArtist =""//clear randomArtist when we do a regular search
             //console.log("123123")
@@ -199,19 +211,21 @@ console.log(wikiSearch)
             //hasSearch = true;
           }
           else if(thisButton == "bio-button") {//if the bio-button was clicked
-            console.log(randomArtist)
+            // console.log(randomArtist)
 
+            // It's general convention to put your opening curly bracket on the same line
+            // as your if statement - also it's good to be consistent with the rest of your code.
             if(randomArtist)//if there is a randomArtist set the wiki search to it
             {
               toSearch = randomArtist;
             }
           }
           else {//not artist-search or bio-button
-            console.log("")
+            // console.log("")
             toSearch=randomArtist;
           }
         //wikiSearch = toSearch
-        console.log("cool monkey2")
+        // console.log("cool monkey2")
         ajaxArticleData();
     // });
 // })

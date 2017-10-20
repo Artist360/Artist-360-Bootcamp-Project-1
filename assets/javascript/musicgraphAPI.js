@@ -1,3 +1,13 @@
+// Got a lot of commented out code here and the indentation is pretty wonky.
+// While neither of those things impact functionality, they make this code
+// much more difficult to maintain and underatand.
+
+// Also you should try to get in the habit of wrapping your code inside a document.ready
+// block or some other fucntional closure. This is so you don't pollute the global scope
+// and anything you intend to be on the global scope can just be wet as a property on
+// `window` - for instance with `musicgraph` you'd just need to do the following:
+// `window.musicgraph = musicgraph`
+
 var data =""
 var youtubeID=""
 // $(document).ready(function() {
@@ -28,7 +38,7 @@ var youtubeID=""
       url: queryURL,
       method: "GET"
     }).done(function(response) {
-      console.log(response);
+      // console.log(response);
       //youtube()
       // console.log(response.data[0].musicbrainz_image_url);
       // var artistImageURL = response.data[0].musicbrainz_image_url
@@ -54,7 +64,7 @@ var youtubeID=""
  //    });
 
  youtubeID=response.data[0].youtube_id;
- console.log(youtubeID)
+ // console.log(youtubeID)
      });
     }
 	artistSearch = input.val()
